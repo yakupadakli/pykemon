@@ -3,14 +3,19 @@
 from beckett.resources import BaseResource
 
 
-class PokemonResource(BaseResource):
+class Resource(BaseResource):
+
+    @staticmethod
+    def get_single_resource_url(url, uid, **kwargs):
+        # Needs a slash on the end!
+        return '{}/{}/'.format(url, uid)
+
+
+class PokemonResource(Resource):
+
     class Meta(BaseResource.Meta):
         name = 'Pokemon'
         resource_name = 'pokemon'
-        identifier = 'id'
-        methods = (
-            'get',
-        )
         attributes = (
             'created',
             'modified',
@@ -42,21 +47,12 @@ class PokemonResource(BaseResource):
             'sprites',
         )
 
-    @staticmethod
-    def get_single_resource_url(url, uid, **kwargs):
-        # Needs a slash on the end!
-        return '{}/{}/'.format(url, uid)
 
-
-class MoveResource(BaseResource):
+class MoveResource(Resource):
 
     class Meta(BaseResource.Meta):
         name = 'Move'
         resource_name = 'move'
-        identifier = 'id'
-        methods = (
-            'get',
-        )
         attributes = (
             'created',
             'modified',
@@ -68,21 +64,12 @@ class MoveResource(BaseResource):
             'name',
         )
 
-    @staticmethod
-    def get_single_resource_url(url, uid, **kwargs):
-        # Needs a slash on the end!
-        return '{}/{}/'.format(url, uid)
 
-
-class TypeResource(BaseResource):
+class TypeResource(Resource):
 
     class Meta(BaseResource.Meta):
         name = 'Type'
         resource_name = 'type'
-        identifier = 'id'
-        methods = (
-            'get',
-        )
         attributes = (
             'created',
             'modified',
@@ -94,21 +81,12 @@ class TypeResource(BaseResource):
             'weakness',
         )
 
-    @staticmethod
-    def get_single_resource_url(url, uid, **kwargs):
-        # Needs a slash on the end!
-        return '{}/{}/'.format(url, uid)
 
-
-class AbilityResource(BaseResource):
+class AbilityResource(Resource):
 
     class Meta(BaseResource.Meta):
         name = 'Ability'
         resource_name = 'ability'
-        identifier = 'id'
-        methods = (
-            'get',
-        )
         attributes = (
             'created',
             'modified',
@@ -117,21 +95,12 @@ class AbilityResource(BaseResource):
             'description',
         )
 
-    @staticmethod
-    def get_single_resource_url(url, uid, **kwargs):
-        # Needs a slash on the end!
-        return '{}/{}/'.format(url, uid)
 
-
-class EggResource(BaseResource):
+class EggResource(Resource):
 
     class Meta(BaseResource.Meta):
         name = 'Egg'
         resource_name = 'egg'
-        identifier = 'id'
-        methods = (
-            'get',
-        )
         attributes = (
             'created',
             'modified',
@@ -140,21 +109,12 @@ class EggResource(BaseResource):
             'pokemon',
         )
 
-    @staticmethod
-    def get_single_resource_url(url, uid, **kwargs):
-        # Needs a slash on the end!
-        return '{}/{}/'.format(url, uid)
 
-
-class DescriptionResource(BaseResource):
+class DescriptionResource(Resource):
 
     class Meta(BaseResource.Meta):
         name = 'Description'
         resource_name = 'description'
-        identifier = 'id'
-        methods = (
-            'get',
-        )
         attributes = (
             'created',
             'modified',
@@ -165,21 +125,12 @@ class DescriptionResource(BaseResource):
             'games',
         )
 
-    @staticmethod
-    def get_single_resource_url(url, uid, **kwargs):
-        # Needs a slash on the end!
-        return '{}/{}/'.format(url, uid)
 
-
-class SpriteResource(BaseResource):
+class SpriteResource(Resource):
 
     class Meta(BaseResource.Meta):
         name = 'Sprite'
         resource_name = 'sprite'
-        identifier = 'id'
-        methods = (
-            'get',
-        )
         attributes = (
             'created',
             'modified',
@@ -189,21 +140,12 @@ class SpriteResource(BaseResource):
             'image',
         )
 
-    @staticmethod
-    def get_single_resource_url(url, uid, **kwargs):
-        # Needs a slash on the end!
-        return '{}/{}/'.format(url, uid)
 
-
-class GameResource(BaseResource):
+class GameResource(Resource):
 
     class Meta(BaseResource.Meta):
         name = 'Game'
         resource_name = 'game'
-        identifier = 'id'
-        methods = (
-            'get',
-        )
         attributes = (
             'created',
             'modified',
@@ -212,8 +154,3 @@ class GameResource(BaseResource):
             'generation',
             'release_year',
         )
-
-    @staticmethod
-    def get_single_resource_url(url, uid, **kwargs):
-        # Needs a slash on the end!
-        return '{}/{}/'.format(url, uid)
